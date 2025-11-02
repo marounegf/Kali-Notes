@@ -1,0 +1,25 @@
+ # 🛰️ Nmap — Network Scanning Tool
+
+Nmap (Network Mapper): is a free and open-source tool used for network discovery and security auditing.
+
+sudo arp-scan --localnet ==> It reveals weak devices that do not hide their presence on the network.ip + mac 
+nmap -sn 10.0.2/24 (ping scan) ==> Shortcut function: Performs a ping scan on the network with a spectrum of addresses 10.0.2/24 to discover live devices (gives "Host is up") without performing a port scan. 
+nmap --top-ports 20 10.0.2.4 ==> Language/Tool: nmap (Network Scanning Tool).
+
+Short Function: Scans the 20 most popular ports (according to the nmap database) at address 10.0.2.4 to provide the status of each port — open/closed/expired.
+Short Note: By default, it will use TCP SYN scanning if you have `sudo` privileges; otherwise, it will use TCP connect. You can add `-sU` to scan UDP or `-sS` to explicitly scan, and `-oN` to save the results.
+nmap -O 10.0.2.4 (OS Detection ) ==> In short, this function performs OS detection on device 10.0.2.4, attempting to determine the operating system type (e.g., Windows, Linux, etc.) based on network responses and TCP/IP packets.
+Note: This typically requires administrator privileges (sudo), and the accuracy of the result depends on the device's response.
+ nmap -A 10.0.2.4 (agressive, scan, ports , traces, fingerprint,versoins )
+ ==>  For the shortcut function: The -A option activates an aggressive scan, which combines several functions into one operation:
+OS detection
+Version detection
+Execute traceroute to determine the path
+Enable the default Nmap scripts (NSE scripts)
+Note: This is a powerful scan and generates a lot of network traffic. It is recommended to add an output option such as -oN result.txt to save and analyze the results later.
+nmap -p 80 10.0.2.4
+==> Shortcut: Scans port 80 only on machine 10.0.2.4 to see if it is open, closed, or restricted (usually used to identify an HTTP service).
+Short note: Can be combined with -sV to see the version of the service running on the port. Suitable for very specific scanning without scanning all ports.
+
+
+
